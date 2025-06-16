@@ -1,58 +1,24 @@
 {
   "name": "marco-portfolio",
   "version": "1.0.0",
-  "description": "Portfolio profesional de Marco David Toledo Canna - Full Stack Developer",
+  "description": "Portfolio personal de Marco David Toledo Canna - Full Stack Developer",
   "main": "index.html",
   "scripts": {
-    "dev": "npx live-server --port=3000 --host=localhost --open=/",
-    "build": "echo 'Building static files...' && echo 'Build complete!'",
-    "preview": "npx serve -s . -l 3000",
-    "deploy": "vercel --prod",
-    "lint:css": "stylelint styles.css --fix",
-    "lint:js": "eslint script.js --fix",
-    "optimize": "npm run optimize:images && npm run optimize:css && npm run optimize:js",
-    "optimize:images": "echo 'Image optimization would go here'",
-    "optimize:css": "postcss styles.css -o styles.min.css --use autoprefixer cssnano",
-    "optimize:js": "terser script.js -o script.min.js --compress --mangle"
+    "build": "echo 'Static site - no build needed'",
+    "start": "serve -s .",
+    "dev": "serve -s ."
   },
   "keywords": [
     "portfolio",
-    "full-stack",
+    "fullstack",
     "developer",
     "laravel",
     "nestjs",
-    "flutter",
-    "web-development",
-    "marco-toledo"
+    "flutter"
   ],
-  "author": {
-    "name": "Marco David Toledo Canna",
-    "email": "marcodaviddtc@gmail.com",
-    "url": "https://github.com/marcodavidd020"
-  },
+  "author": "Marco David Toledo Canna",
   "license": "MIT",
-  "homepage": "https://marco-portfolio.vercel.app",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/marcodavidd020/portfolio.git"
-  },
   "devDependencies": {
-    "autoprefixer": "^10.4.16",
-    "cssnano": "^6.0.1",
-    "eslint": "^8.55.0",
-    "live-server": "^1.2.2",
-    "postcss": "^8.4.32",
-    "postcss-cli": "^11.0.0",
-    "serve": "^14.2.1",
-    "stylelint": "^15.11.0",
-    "terser": "^5.24.0"
-  },
-  "engines": {
-    "node": ">=16.0.0"
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ]
+    "serve": "^14.0.0"
+  }
 } 

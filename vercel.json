@@ -1,57 +1,8 @@
 {
-  "version": 2,
-  "name": "marco-portfolio",
-  "functions": {
-    "app.js": {
-      "runtime": "@vercel/node"
-    }
-  },
-  "builds": [
+  "rewrites": [
     {
-      "src": "**",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/assets/(.*)",
-      "dest": "/assets/$1"
-    },
-    {
-      "src": "/skills",
-      "dest": "/skills.html"
-    },
-    {
-      "src": "/(.*\\.(?:html|css|js|png|jpg|jpeg|gif|svg|ico|pdf|woff|woff2|ttf|eot))",
-      "dest": "/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/(.*\\.(?:css|js|jpg|jpeg|png|gif|ico|svg|woff|woff2|ttf|eot|pdf))",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    },
-    {
-      "source": "/assets/(.*\\.pdf)",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/pdf"
-        },
-        {
-          "key": "Content-Disposition",
-          "value": "attachment"
-        }
-      ]
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 } 
