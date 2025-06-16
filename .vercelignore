@@ -1,0 +1,22 @@
+# Development files
+node_modules/
+*.log
+.env*
+
+# Source files that shouldn't be deployed
+src/
+*.md
+.gitignore
+package.json
+package-lock.json
+*.config.js
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db 

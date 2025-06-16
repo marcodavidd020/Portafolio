@@ -158,6 +158,87 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, 1500);
 
+    // Force PDF download functionality
+    function forceDownloadPDF(url, filename) {
+        fetch(url)
+            .then(response => response.blob())
+            .then(blob => {
+                const link = document.createElement('a');
+                link.href = window.URL.createObjectURL(blob);
+                link.download = filename;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                window.URL.revokeObjectURL(link.href);
+            })
+            .catch(error => {
+                console.error('Error downloading PDF:', error);
+                // Fallback to direct link
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = filename;
+                link.target = '_blank';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            });
+    }
+
+    // Add event listeners to all CV download links
+    const cvLinks = document.querySelectorAll('a[href*="CV_Marco_David_Toledo_Canna.pdf"]');
+    cvLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const url = this.getAttribute('href');
+            const filename = 'CV_Marco_David_Toledo_Canna.pdf';
+            forceDownloadPDF(url, filename);
+        });
+    });
+
+    // Enhanced background animations
+    function createFloatingElements() {
+        const hero = document.getElementById('home');
+        const particlesContainer = hero.querySelector('.absolute.inset-0.overflow-hidden');
+        
+        // Create additional animated elements
+        const elements = [
+            { content: '< >', class: 'text-accent/20 text-lg' },
+            { content: '{ }', class: 'text-white/10 text-sm' },
+            { content: 'λ', class: 'text-blue-400/20 text-xl' },
+            { content: '→', class: 'text-green-400/20 text-lg' },
+            { content: '∞', class: 'text-purple-400/20 text-lg' },
+            { content: '#', class: 'text-accent/15 text-sm' },
+        ];
+
+        elements.forEach((elem, index) => {
+            const div = document.createElement('div');
+            div.innerHTML = elem.content;
+            div.className = `absolute ${elem.class} animate-float-slow pointer-events-none`;
+            div.style.top = Math.random() * 80 + 10 + '%';
+            div.style.left = Math.random() * 80 + 10 + '%';
+            div.style.animationDelay = Math.random() * 3 + 's';
+            div.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            particlesContainer.appendChild(div);
+        });
+
+        // Create moving particles
+        for (let i = 0; i < 8; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'absolute rounded-full animate-float opacity-40 pointer-events-none';
+            particle.style.width = Math.random() * 4 + 2 + 'px';
+            particle.style.height = particle.style.width;
+            particle.style.backgroundColor = i % 2 === 0 ? '#38BDF8' : '#ffffff';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 2 + 's';
+            particle.style.animationDuration = (Math.random() * 2 + 3) + 's';
+            particlesContainer.appendChild(particle);
+        }
+    }
+
+    // Initialize floating elements
+    setTimeout(createFloatingElements, 1000);
+
     // Skill tag hover effects
     const skillTags = document.querySelectorAll('.skill-tag');
     skillTags.forEach(tag => {
