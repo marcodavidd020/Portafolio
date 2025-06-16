@@ -90,17 +90,33 @@
             <span class="text-accent">Marco</span>Portfolio
         </div>
         <nav id="nav-menu" class="hidden md:flex space-x-8">
-            <a href="#home" class="nav-link text-white hover:text-accent transition duration-300">Inicio</a>
-            <a href="#about" class="nav-link text-white hover:text-accent transition duration-300">Sobre Mí</a>
-            <a href="#experience" class="nav-link text-white hover:text-accent transition duration-300">Experiencia</a>
-            <a href="skills.html" class="nav-link text-white hover:text-accent transition duration-300">Habilidades</a>
-            <a href="#projects" class="nav-link text-white hover:text-accent transition duration-300">Proyectos</a>
-            <a href="#contact" class="nav-link text-white hover:text-accent transition duration-300">Contacto</a>
+            <a href="#home" class="nav-link text-white hover:text-accent transition duration-300" data-i18n="nav_home">Inicio</a>
+            <a href="#about" class="nav-link text-white hover:text-accent transition duration-300" data-i18n="nav_about">Sobre Mí</a>
+            <a href="#experience" class="nav-link text-white hover:text-accent transition duration-300" data-i18n="nav_experience">Experiencia</a>
+            <a href="skills.html" class="nav-link text-white hover:text-accent transition duration-300" data-i18n="nav_skills">Habilidades</a>
+            <a href="#projects" class="nav-link text-white hover:text-accent transition duration-300" data-i18n="nav_projects">Proyectos</a>
+            <a href="#contact" class="nav-link text-white hover:text-accent transition duration-300" data-i18n="nav_contact">Contacto</a>
         </nav>
         <div class="flex items-center space-x-4">
-            <a href="assets/CV_Marco_David_Toledo_Canna.pdf" download="CV_Marco_David_Toledo_Canna.pdf" class="hidden md:inline-block px-4 py-2 border border-accent text-accent hover:bg-accent hover:text-gray-900 transition duration-300 rounded-md">
+            <!-- Language Selector -->
+            <div class="relative">
+                <button id="language-selector" class="flex items-center space-x-2 px-3 py-2 rounded-md border border-gray-600 hover:border-accent transition duration-300">
+                    <i class="fa-solid fa-globe text-accent"></i>
+                    <span id="current-language" class="text-white">ES</span>
+                    <i class="fa-solid fa-chevron-down text-gray-400"></i>
+                </button>
+                <div id="language-dropdown" class="absolute right-0 mt-2 w-32 bg-gray-800 border border-gray-600 rounded-md shadow-lg hidden z-50">
+                    <button class="language-option w-full px-4 py-2 text-left hover:bg-gray-700 transition duration-300" data-lang="es">
+                        <span class="text-white">🇪🇸 Español</span>
+                    </button>
+                    <button class="language-option w-full px-4 py-2 text-left hover:bg-gray-700 transition duration-300" data-lang="en">
+                        <span class="text-white">🇺🇸 English</span>
+                    </button>
+                </div>
+            </div>
+            <a href="/CV_Marco_David_Toledo_Canna.pdf" download="CV_Marco_David_Toledo_Canna.pdf" class="hidden md:inline-block px-4 py-2 border border-accent text-accent hover:bg-accent hover:text-gray-900 transition duration-300 rounded-md">
                 <i class="fa-solid fa-download mr-2"></i>
-                Descargar CV
+                <span data-i18n="download_cv">Descargar CV</span>
             </a>
             <button id="mobile-menu-btn" class="md:hidden text-white">
                 <i class="fa-solid fa-bars"></i>
@@ -108,17 +124,21 @@
         </div>
     </header>
 
+    <!-- Mouse Cursor Animation -->
+    <div id="cursor" class="fixed w-4 h-4 bg-accent rounded-full pointer-events-none z-50 mix-blend-difference transition-transform duration-150 ease-out"></div>
+    <div id="cursor-trail" class="fixed w-8 h-8 border border-accent rounded-full pointer-events-none z-40 transition-all duration-300 ease-out opacity-50"></div>
+
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="fixed inset-0 bg-gray-900 bg-opacity-95 backdrop-blur-sm z-30 hidden">
         <div class="flex flex-col items-center justify-center h-full space-y-8 text-xl">
-            <a href="#home" class="mobile-nav-link text-white hover:text-accent transition duration-300">Inicio</a>
-            <a href="#about" class="mobile-nav-link text-white hover:text-accent transition duration-300">Sobre Mí</a>
-            <a href="#experience" class="mobile-nav-link text-white hover:text-accent transition duration-300">Experiencia</a>
-            <a href="skills.html" class="mobile-nav-link text-white hover:text-accent transition duration-300">Habilidades</a>
-            <a href="#projects" class="mobile-nav-link text-white hover:text-accent transition duration-300">Proyectos</a>
-            <a href="#contact" class="mobile-nav-link text-white hover:text-accent transition duration-300">Contacto</a>
-            <a href="assets/CV_Marco_David_Toledo_Canna.pdf" download="CV_Marco_David_Toledo_Canna.pdf" class="mobile-nav-link text-accent hover:text-white transition duration-300">
-                <i class="fa-solid fa-download mr-2"></i>Descargar CV
+            <a href="#home" class="mobile-nav-link text-white hover:text-accent transition duration-300" data-i18n="nav_home">Inicio</a>
+            <a href="#about" class="mobile-nav-link text-white hover:text-accent transition duration-300" data-i18n="nav_about">Sobre Mí</a>
+            <a href="#experience" class="mobile-nav-link text-white hover:text-accent transition duration-300" data-i18n="nav_experience">Experiencia</a>
+            <a href="skills.html" class="mobile-nav-link text-white hover:text-accent transition duration-300" data-i18n="nav_skills">Habilidades</a>
+            <a href="#projects" class="mobile-nav-link text-white hover:text-accent transition duration-300" data-i18n="nav_projects">Proyectos</a>
+            <a href="#contact" class="mobile-nav-link text-white hover:text-accent transition duration-300" data-i18n="nav_contact">Contacto</a>
+            <a href="/CV_Marco_David_Toledo_Canna.pdf" download="CV_Marco_David_Toledo_Canna.pdf" class="mobile-nav-link text-accent hover:text-white transition duration-300">
+                <i class="fa-solid fa-download mr-2"></i><span data-i18n="download_cv">Descargar CV</span>
             </a>
         </div>
     </div>
@@ -155,25 +175,25 @@
             <div class="lg:w-1/2 text-center lg:text-left mb-8 lg:mb-0">
                 <div class="animate-fade-in-up">
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-                        <span class="block opacity-0 animate-slide-in-left" style="animation-delay: 0.2s; animation-fill-mode: forwards;">Hola, soy</span>
+                        <span class="block opacity-0 animate-slide-in-left" style="animation-delay: 0.2s; animation-fill-mode: forwards;" data-i18n="hero_greeting">Hola, soy</span>
                         <span class="text-accent opacity-0 animate-slide-in-left" style="animation-delay: 0.4s; animation-fill-mode: forwards;">Marco David</span>
                     </h1>
-                    <h2 class="text-2xl md:text-3xl font-light mb-6 opacity-0 animate-slide-in-left" style="animation-delay: 0.6s; animation-fill-mode: forwards;">
+                    <h2 class="text-2xl md:text-3xl font-light mb-6 opacity-0 animate-slide-in-left" style="animation-delay: 0.6s; animation-fill-mode: forwards;" data-i18n="hero_title">
                         Full Stack Developer
                     </h2>
-                    <p class="text-gray-300 text-lg mb-8 max-w-lg opacity-0 animate-fade-in-up" style="animation-delay: 0.8s; animation-fill-mode: forwards;">
+                    <p class="text-gray-300 text-lg mb-8 max-w-lg opacity-0 animate-fade-in-up" style="animation-delay: 0.8s; animation-fill-mode: forwards;" data-i18n="hero_description">
                         Desarrollador especializado en Laravel, NestJS y Flutter. Creo soluciones robustas, escalables y de alta calidad con enfoque en testing y buenas prácticas.
                     </p>
                     <div class="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4 opacity-0 animate-fade-in-up" style="animation-delay: 1s; animation-fill-mode: forwards;">
-                        <a href="#projects" class="bg-accent text-gray-900 hover:bg-opacity-90 px-6 py-3 rounded-md font-medium transition duration-300 transform hover:scale-105">
+                        <a href="#projects" class="bg-accent text-gray-900 hover:bg-opacity-90 px-6 py-3 rounded-md font-medium transition duration-300 transform hover:scale-105" data-i18n="hero_view_projects">
                             Ver Proyectos
                         </a>
-                        <a href="skills.html" class="border border-accent text-accent hover:bg-accent hover:text-gray-900 px-6 py-3 rounded-md font-medium transition duration-300 transform hover:scale-105">
+                        <a href="skills.html" class="border border-accent text-accent hover:bg-accent hover:text-gray-900 px-6 py-3 rounded-md font-medium transition duration-300 transform hover:scale-105" data-i18n="hero_view_skills">
                             Ver Habilidades
                         </a>
-                        <a href="assets/CV_Marco_David_Toledo_Canna.pdf" download="CV_Marco_David_Toledo_Canna.pdf" class="border border-white text-white hover:bg-white hover:bg-opacity-10 px-6 py-3 rounded-md font-medium transition duration-300 transform hover:scale-105">
+                        <a href="/CV_Marco_David_Toledo_Canna.pdf" download="CV_Marco_David_Toledo_Canna.pdf" class="border border-white text-white hover:bg-white hover:bg-opacity-10 px-6 py-3 rounded-md font-medium transition duration-300 transform hover:scale-105">
                             <i class="fa-solid fa-download mr-2"></i>
-                            Descargar CV
+                            <span data-i18n="download_cv">Descargar CV</span>
                         </a>
                     </div>
                 </div>
@@ -199,17 +219,17 @@
     <!-- About Section -->
     <section id="about" class="py-20 px-6 bg-gray-800">
         <div class="container mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 animate-fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 animate-fade-in" data-i18n="about_title">
                 Sobre <span class="text-accent">Mí</span>
             </h2>
             <div class="flex flex-col lg:flex-row gap-12">
                 <div class="lg:w-1/2 animate-slide-in-left">
-                    <h3 class="text-2xl font-semibold mb-4">Mi Historia</h3>
-                    <p class="text-gray-300 mb-6 leading-relaxed">
+                    <h3 class="text-2xl font-semibold mb-4" data-i18n="about_my_story">Mi Historia</h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed" data-i18n="about_description_1">
                         Soy estudiante de Ingeniería Informática en la Universidad Autónoma Gabriel René Moreno, con fecha de graduación prevista para 2025. 
                         Mi pasión por el desarrollo full stack me ha llevado a especializarme en tecnologías modernas como Laravel, NestJS y Flutter.
                     </p>
-                    <p class="text-gray-300 mb-8 leading-relaxed">
+                    <p class="text-gray-300 mb-8 leading-relaxed" data-i18n="about_description_2">
                         Me destaco en la resolución de problemas complejos y poseo una comunicación efectiva con equipos de desarrollo. 
                         Mi enfoque está en crear soluciones robustas, escalables y de alta calidad, con fuerte orientación a testing y buenas prácticas.
                     </p>
@@ -232,7 +252,7 @@
                     </div>
                 </div>
                 <div class="lg:w-1/2 animate-slide-in-right">
-                    <h3 class="text-2xl font-semibold mb-4">Habilidades Técnicas</h3>
+                    <h3 class="text-2xl font-semibold mb-4" data-i18n="about_technical_skills">Habilidades Técnicas</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="skill-card bg-gray-900 p-5 rounded-lg transform hover:scale-105 transition duration-300">
                             <h4 class="text-xl font-medium mb-3 text-accent">Backend</h4>
@@ -287,7 +307,7 @@
     <!-- Experience Section -->
     <section id="experience" class="py-20 px-6 bg-gray-900">
         <div class="container mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 animate-fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 animate-fade-in" data-i18n="experience_title">
                 Mi <span class="text-accent">Experiencia</span>
             </h2>
             <div class="max-w-4xl mx-auto">
@@ -299,11 +319,11 @@
                         </div>
                         <div class="bg-gray-800 p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
                             <div class="flex justify-between items-start mb-2">
-                                <h4 class="text-xl font-medium">Full Stack Developer</h4>
-                                <span class="text-accent text-sm">2022 - Presente</span>
+                                <h4 class="text-xl font-medium" data-i18n="experience_fullstack">Full Stack Developer</h4>
+                                <span class="text-accent text-sm">2022 - <span data-i18n="experience_present">Presente</span></span>
                             </div>
-                            <h5 class="text-gray-300 mb-3">Proyectos Independientes</h5>
-                            <p class="text-gray-400 text-sm">
+                            <h5 class="text-gray-300 mb-3" data-i18n="experience_independent">Proyectos Independientes</h5>
+                            <p class="text-gray-400 text-sm" data-i18n="experience_description">
                                 Desarrollo de aplicaciones web completas con Laravel, sistemas de gestión empresarial, e-commerce y aplicaciones móviles con Flutter.
                             </p>
                             <div class="flex flex-wrap gap-2 mt-3">
@@ -321,11 +341,11 @@
                         </div>
                         <div class="bg-gray-800 p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
                             <div class="flex justify-between items-start mb-2">
-                                <h4 class="text-xl font-medium">Licenciatura en Ingeniería Informática</h4>
+                                <h4 class="text-xl font-medium" data-i18n="experience_education">Licenciatura en Ingeniería Informática</h4>
                                 <span class="text-accent text-sm">2018 - 2025</span>
                             </div>
-                            <h5 class="text-gray-300 mb-3">Universidad Autónoma Gabriel René Moreno</h5>
-                            <p class="text-gray-400 text-sm">
+                            <h5 class="text-gray-300 mb-3" data-i18n="experience_university">Universidad Autónoma Gabriel René Moreno</h5>
+                            <p class="text-gray-400 text-sm" data-i18n="experience_edu_description">
                                 Santa Cruz, Bolivia. Especialización en desarrollo de software y tecnologías web modernas. Fecha de graduación prevista: 2025 (en proyecto final).
                             </p>
                             <div class="flex flex-wrap gap-2 mt-3">
@@ -343,7 +363,7 @@
     <!-- Projects Section -->
     <section id="projects" class="py-20 px-6 bg-gray-800">
         <div class="container mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 animate-fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 animate-fade-in" data-i18n="projects_title">
                 Proyectos <span class="text-accent">Destacados</span>
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -442,19 +462,19 @@
     <!-- Contact Section -->
     <section id="contact" class="py-20 px-6 bg-gray-900">
         <div class="container mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 animate-fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 animate-fade-in" data-i18n="contact_title">
                 Trabajemos <span class="text-accent">Juntos</span>
             </h2>
             <div class="flex flex-col lg:flex-row gap-12 max-w-6xl mx-auto">
                 <div class="lg:w-1/2 animate-slide-in-left">
-                    <h3 class="text-2xl font-semibold mb-6">Información de Contacto</h3>
+                    <h3 class="text-2xl font-semibold mb-6" data-i18n="contact_info">Información de Contacto</h3>
                     <div class="space-y-6">
                         <div class="flex items-center group">
                             <div class="w-12 h-12 rounded-lg bg-blue-900 flex items-center justify-center mr-4 group-hover:bg-accent group-hover:scale-110 transition duration-300">
                                 <i class="fa-solid fa-envelope text-accent group-hover:text-gray-900 text-xl"></i>
                             </div>
                             <div>
-                                <p class="text-gray-400 text-sm">Email</p>
+                                <p class="text-gray-400 text-sm" data-i18n="contact_email">Email</p>
                                 <a href="mailto:marcodaviddtc@gmail.com" class="text-gray-300 hover:text-accent transition">marcodaviddtc@gmail.com</a>
                             </div>
                         </div>
@@ -463,7 +483,7 @@
                                 <i class="fa-solid fa-phone text-accent group-hover:text-gray-900 text-xl"></i>
                             </div>
                             <div>
-                                <p class="text-gray-400 text-sm">Teléfono</p>
+                                <p class="text-gray-400 text-sm" data-i18n="contact_phone">Teléfono</p>
                                 <a href="tel:+59167733399" class="text-gray-300 hover:text-accent transition">+591 67733399</a>
                             </div>
                         </div>
@@ -472,7 +492,7 @@
                                 <i class="fa-solid fa-location-dot text-accent group-hover:text-gray-900 text-xl"></i>
                             </div>
                             <div>
-                                <p class="text-gray-400 text-sm">Ubicación</p>
+                                <p class="text-gray-400 text-sm" data-i18n="contact_location">Ubicación</p>
                                 <span class="text-gray-300">Santa Cruz, Bolivia</span>
                             </div>
                         </div>
@@ -498,25 +518,25 @@
                 <div class="lg:w-1/2 animate-slide-in-right">
                     <form id="contact-form" class="space-y-6">
                         <div>
-                            <label for="name" class="block text-gray-300 mb-2 font-medium">Nombre</label>
+                            <label for="name" class="block text-gray-300 mb-2 font-medium" data-i18n="contact_form_name">Nombre</label>
                             <input type="text" id="name" name="name" 
                                    class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition duration-300" 
                                    required>
                         </div>
                         <div>
-                            <label for="email" class="block text-gray-300 mb-2 font-medium">Email</label>
+                            <label for="email" class="block text-gray-300 mb-2 font-medium" data-i18n="contact_form_email">Email</label>
                             <input type="email" id="email" name="email" 
                                    class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition duration-300" 
                                    required>
                         </div>
                         <div>
-                            <label for="subject" class="block text-gray-300 mb-2 font-medium">Asunto</label>
+                            <label for="subject" class="block text-gray-300 mb-2 font-medium" data-i18n="contact_form_subject">Asunto</label>
                             <input type="text" id="subject" name="subject" 
                                    class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition duration-300" 
                                    required>
                         </div>
                         <div>
-                            <label for="message" class="block text-gray-300 mb-2 font-medium">Mensaje</label>
+                            <label for="message" class="block text-gray-300 mb-2 font-medium" data-i18n="contact_form_message">Mensaje</label>
                             <textarea id="message" name="message" rows="5" 
                                       class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition duration-300" 
                                       required></textarea>
@@ -524,7 +544,7 @@
                         <button type="submit" 
                                 class="w-full bg-accent text-gray-900 font-medium py-3 rounded-lg hover:bg-opacity-90 transform hover:scale-105 transition duration-300 flex items-center justify-center">
                             <i class="fa-solid fa-paper-plane mr-2"></i>
-                            Enviar Mensaje
+                            <span data-i18n="contact_form_send">Enviar Mensaje</span>
                         </button>
                     </form>
                 </div>

@@ -3,11 +3,78 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    cursor: none; /* Hide default cursor */
 }
 
 body {
     font-family: 'Inter', sans-serif !important;
     overflow-x: hidden;
+}
+
+/* Custom Cursor Animation */
+#cursor {
+    position: fixed;
+    width: 16px;
+    height: 16px;
+    background-color: #38BDF8;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+    transition: transform 0.15s ease-out;
+}
+
+#cursor-trail {
+    position: fixed;
+    width: 32px;
+    height: 32px;
+    border: 2px solid #38BDF8;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    opacity: 0.5;
+    transition: all 0.3s ease-out;
+}
+
+/* Sparkle Animation */
+.sparkle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9997;
+    border-radius: 50%;
+}
+
+/* Language Selector Styles */
+#language-dropdown {
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+#language-dropdown:not(.hidden) {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.language-option {
+    transition: all 0.2s ease;
+}
+
+.language-option:hover {
+    background-color: #374151;
+    transform: translateX(4px);
+}
+
+/* Mobile cursor hide */
+@media (max-width: 768px) {
+    * {
+        cursor: auto !important;
+    }
+    
+    #cursor,
+    #cursor-trail {
+        display: none !important;
+    }
 }
 
 /* Preserve Font Awesome icons */
