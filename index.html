@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marco David Toledo Canna - Full Stack Developer</title>
+    <meta name="description" content="Desarrollador Full Stack especializado en Laravel, NestJS, Flutter. Creando soluciones robustas y escalables.">
+    <meta name="keywords" content="Marco Toledo, Full Stack Developer, Laravel, NestJS, Flutter, PHP, TypeScript, Bolivia">
+    <meta name="author" content="Marco David Toledo Canna">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Marco David Toledo Canna - Full Stack Developer">
+    <meta property="og:description" content="Desarrollador Full Stack especializado en Laravel, NestJS, Flutter. Creando soluciones robustas y escalables.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://marco-portfolio.vercel.app">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Marco David Toledo Canna - Full Stack Developer">
+    <meta name="twitter:description" content="Desarrollador Full Stack especializado en Laravel, NestJS, Flutter.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#1E3A8A",
+                        secondary: "#64748B",
+                        accent: "#38BDF8"
+                    },
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"]
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-in-out',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out',
+                        'slide-in-left': 'slideInLeft 0.8s ease-out',
+                        'slide-in-right': 'slideInRight 0.8s ease-out',
+                        'bounce-in': 'bounceIn 1s ease-out',
+                        'scale-in': 'scaleIn 0.5s ease-out',
+                        'float': 'float 3s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate'
+                    }
+                }
+            }
+        };
+    </script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-900 text-white font-sans overflow-x-hidden">
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="fixed inset-0 bg-gray-900 flex items-center justify-center z-50">
+        <div class="text-center">
+            <div class="animate-spin rounded-full h-32 w-32 border-b-2 border-accent mb-4"></div>
+            <p class="text-accent text-xl">Cargando Portfolio...</p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 bg-gray-900 bg-opacity-95 backdrop-blur-sm z-40 px-6 py-4 flex justify-between items-center border-b border-gray-800 transition-all duration-300">
+        <div class="text-white text-2xl font-bold animate-fade-in">
+            <span class="text-accent">Marco</span>Portfolio
+        </div>
+        <nav id="nav-menu" class="hidden md:flex space-x-8">
+            <a href="#home" class="nav-link text-white hover:text-accent transition duration-300">Inicio</a>
+            <a href="#about" class="nav-link text-white hover:text-accent transition duration-300">Sobre Mí</a>
+            <a href="#experience" class="nav-link text-white hover:text-accent transition duration-300">Experiencia</a>
+            <a href="#projects" class="nav-link text-white hover:text-accent transition duration-300">Proyectos</a>
+            <a href="#contact" class="nav-link text-white hover:text-accent transition duration-300">Contacto</a>
+        </nav>
+        <div class="flex items-center space-x-4">
+            <a href="mailto:marcodaviddtc@gmail.com" class="hidden md:inline-block px-4 py-2 border border-accent text-accent hover:bg-accent hover:text-gray-900 transition duration-300 rounded-md">
+                Contactar
+            </a>
+            <button id="mobile-menu-btn" class="md:hidden text-white">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-gray-900 bg-opacity-95 backdrop-blur-sm z-30 hidden">
+        <div class="flex flex-col items-center justify-center h-full space-y-8 text-xl">
+            <a href="#home" class="mobile-nav-link text-white hover:text-accent transition duration-300">Inicio</a>
+            <a href="#about" class="mobile-nav-link text-white hover:text-accent transition duration-300">Sobre Mí</a>
+            <a href="#experience" class="mobile-nav-link text-white hover:text-accent transition duration-300">Experiencia</a>
+            <a href="#projects" class="mobile-nav-link text-white hover:text-accent transition duration-300">Proyectos</a>
+            <a href="#contact" class="mobile-nav-link text-white hover:text-accent transition duration-300">Contacto</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center pt-20 px-6 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-primary to-gray-900 opacity-50"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-gray-900 to-gray-900"></div>
+        
+        <!-- Particles Background -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="particle absolute w-2 h-2 bg-accent rounded-full animate-float"></div>
+            <div class="particle absolute w-1 h-1 bg-white rounded-full animate-float" style="animation-delay: 1s;"></div>
+            <div class="particle absolute w-3 h-3 bg-accent rounded-full animate-float" style="animation-delay: 2s;"></div>
+        </div>
+
+        <div class="container mx-auto z-10 flex flex-col lg:flex-row items-center justify-between">
+            <div class="lg:w-1/2 text-center lg:text-left mb-8 lg:mb-0">
+                <div class="animate-fade-in-up">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+                        <span class="block opacity-0 animate-slide-in-left" style="animation-delay: 0.2s; animation-fill-mode: forwards;">Hola, soy</span>
+                        <span class="text-accent opacity-0 animate-slide-in-left" style="animation-delay: 0.4s; animation-fill-mode: forwards;">Marco David</span>
+                    </h1>
+                    <h2 class="text-2xl md:text-3xl font-light mb-6 opacity-0 animate-slide-in-left" style="animation-delay: 0.6s; animation-fill-mode: forwards;">
+                        Full Stack Developer
+                    </h2>
+                    <p class="text-gray-300 text-lg mb-8 max-w-lg opacity-0 animate-fade-in-up" style="animation-delay: 0.8s; animation-fill-mode: forwards;">
+                        Desarrollador especializado en Laravel, NestJS y Flutter. Creo soluciones robustas, escalables y de alta calidad con enfoque en testing y buenas prácticas.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4 opacity-0 animate-fade-in-up" style="animation-delay: 1s; animation-fill-mode: forwards;">
+                        <a href="#projects" class="bg-accent text-gray-900 hover:bg-opacity-90 px-6 py-3 rounded-md font-medium transition duration-300 transform hover:scale-105">
+                            Ver Proyectos
+                        </a>
+                        <a href="#contact" class="border border-white text-white hover:bg-white hover:bg-opacity-10 px-6 py-3 rounded-md font-medium transition duration-300 transform hover:scale-105">
+                            Contactarme
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="lg:w-1/2 flex justify-center lg:justify-end">
+                <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-accent animate-bounce-in shadow-2xl">
+                    <img class="w-full h-full object-cover transform hover:scale-110 transition duration-500" 
+                         src="https://storage.googleapis.com/uxpilot-auth.appspot.com/add3d6dcbf-32351098fba1987c0400.png" 
+                         alt="Marco David Toledo Canna - Full Stack Developer">
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-30"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <div class="w-6 h-10 border-2 border-accent rounded-full flex justify-center">
+                <div class="w-1 h-3 bg-accent rounded-full mt-2 animate-pulse"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 bg-gray-800">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 animate-fade-in">
+                Sobre <span class="text-accent">Mí</span>
+            </h2>
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2 animate-slide-in-left">
+                    <h3 class="text-2xl font-semibold mb-4">Mi Historia</h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Soy estudiante de Ingeniería Informática en la Universidad Autónoma Gabriel René Moreno, con fecha de graduación prevista para 2025. 
+                        Mi pasión por el desarrollo full stack me ha llevado a especializarme en tecnologías modernas como Laravel, NestJS y Flutter.
+                    </p>
+                    <p class="text-gray-300 mb-8 leading-relaxed">
+                        Me destaco en la resolución de problemas complejos y poseo una comunicación efectiva con equipos de desarrollo. 
+                        Mi enfoque está en crear soluciones robustas, escalables y de alta calidad, con fuerte orientación a testing y buenas prácticas.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://linkedin.com/in/marco-david-toledo-canna-813bb2165" target="_blank" 
+                           class="flex items-center gap-2 bg-blue-700 px-4 py-2 rounded-md hover:bg-blue-800 transition transform hover:scale-105">
+                            <i class="fa-brands fa-linkedin"></i>
+                            LinkedIn
+                        </a>
+                        <a href="https://github.com/marcodavidd020" target="_blank" 
+                           class="flex items-center gap-2 bg-gray-700 px-4 py-2 rounded-md hover:bg-gray-600 transition transform hover:scale-105">
+                            <i class="fa-brands fa-github"></i>
+                            GitHub
+                        </a>
+                        <a href="mailto:marcodaviddtc@gmail.com" 
+                           class="flex items-center gap-2 bg-primary px-4 py-2 rounded-md hover:bg-blue-900 transition transform hover:scale-105">
+                            <i class="fa-solid fa-envelope"></i>
+                            Email
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 animate-slide-in-right">
+                    <h3 class="text-2xl font-semibold mb-4">Habilidades Técnicas</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="skill-card bg-gray-900 p-5 rounded-lg transform hover:scale-105 transition duration-300">
+                            <h4 class="text-xl font-medium mb-3 text-accent">Backend</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-tag px-3 py-1 bg-gray-700 rounded-full text-sm hover:bg-accent hover:text-gray-900 transition">Laravel</span>
+                                <span class="skill-tag px-3 py-1 bg-gray-700 rounded-full text-sm hover:bg-accent hover:text-gray-900 transition">NestJS</span>
+                                <span class="skill-tag px-3 py-1 bg-gray-700 rounded-full text-sm hover:bg-accent hover:text-gray-900 transition">PHP</span>
+                                <span class="skill-tag px-3 py-1 bg-gray-700 rounded-full text-sm hover:bg-accent hover:text-gray-900 transition">TypeScript</span>
+                                <span class="skill-tag px-3 py-1 bg-gray-700 rounded-full text-sm hover:bg-accent hover:text-gray-900 transition">MySQL</span>
+                                <span class="skill-tag px-3 py-1 bg-gray-700 rounded-full text-sm hover:bg-accent hover:text-gray-900 transition">PostgreSQL</span>
+                            </div>
+                        </div>
+                        <div class="skill-card bg-gray-900 p-5 rounded-lg transform hover:scale-105 transition duration-300">
+                            <h4 class="text-xl font-medium mb-3 text-accent">Frontend & Mobile</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-tag px-3 py-1 bg-gray-700 rounded-full text-sm hover:bg-accent hover:text-gray-900 transition">Flutter</span>
+                                <span class="skill-tag px-3 py-1 bg-gray-700 rounded-full text-sm hover:bg-accent hover:text-gray-900 transition">Livewire</span>
+                                <span class="skill-tag px-3 py-1 bg-gray-700 rounded-full text-sm hover:bg-accent hover:text-gray-900 transition">Alpine.js</span>
+                                <span class="skill-tag px-3 py-1 bg-gray-700 rounded-full text-sm hover:bg-accent hover:text-gray-900 transition">Tailwind CSS</span>
+                                <span class="skill-tag px-3 py-1 bg-gray-700 rounded-full text-sm hover:bg-accent hover:text-gray-900 transition">Bootstrap</span>
+                                <span class="skill-tag px-3 py-1 bg-gray-700 rounded-full text-sm hover:bg-accent hover:text-gray-900 transition">Blade</span>
+                            </div>
+                        </div>
+                        <div class="skill-card bg-gray-900 p-5 rounded-lg transform hover:scale-105 transition duration-300">
+                            <h4 class="text-xl font-medium mb-3 text-accent">DevOps & Tools</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-tag px-3 py-1 bg-gray-700 rounded-full text-sm hover:bg-accent hover:text-gray-900 transition">Docker</span>
+                                <span class="skill-tag px-3 py-1 bg-gray-700 rounded-full text-sm hover:bg-accent hover:text-gray-900 transition">Git</span>
+                                <span class="skill-tag px-3 py-1 bg-gray-700 rounded-full text-sm hover:bg-accent hover:text-gray-900 transition">PHPUnit</span>
+                                <span class="skill-tag px-3 py-1 bg-gray-700 rounded-full text-sm hover:bg-accent hover:text-gray-900 transition">Vite</span>
+                                <span class="skill-tag px-3 py-1 bg-gray-700 rounded-full text-sm hover:bg-accent hover:text-gray-900 transition">Composer</span>
+                                <span class="skill-tag px-3 py-1 bg-gray-700 rounded-full text-sm hover:bg-accent hover:text-gray-900 transition">NPM</span>
+                            </div>
+                        </div>
+                        <div class="skill-card bg-gray-900 p-5 rounded-lg transform hover:scale-105 transition duration-300">
+                            <h4 class="text-xl font-medium mb-3 text-accent">Servicios & APIs</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-tag px-3 py-1 bg-gray-700 rounded-full text-sm hover:bg-accent hover:text-gray-900 transition">Stripe</span>
+                                <span class="skill-tag px-3 py-1 bg-gray-700 rounded-full text-sm hover:bg-accent hover:text-gray-900 transition">Cloudinary</span>
+                                <span class="skill-tag px-3 py-1 bg-gray-700 rounded-full text-sm hover:bg-accent hover:text-gray-900 transition">DomPDF</span>
+                                <span class="skill-tag px-3 py-1 bg-gray-700 rounded-full text-sm hover:bg-accent hover:text-gray-900 transition">QR Codes</span>
+                                <span class="skill-tag px-3 py-1 bg-gray-700 rounded-full text-sm hover:bg-accent hover:text-gray-900 transition">REST APIs</span>
+                                <span class="skill-tag px-3 py-1 bg-gray-700 rounded-full text-sm hover:bg-accent hover:text-gray-900 transition">Jetstream</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 px-6 bg-gray-900">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 animate-fade-in">
+                Mi <span class="text-accent">Experiencia</span>
+            </h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="relative border-l-2 border-gray-700 pl-8 ml-4 space-y-12">
+                    <!-- Education -->
+                    <div class="experience-item relative animate-slide-in-left">
+                        <div class="absolute -left-12 mt-1.5 h-6 w-6 rounded-full border-2 border-accent bg-gray-900 flex items-center justify-center">
+                            <div class="h-3 w-3 rounded-full bg-accent animate-pulse"></div>
+                        </div>
+                        <div class="bg-gray-800 p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="text-xl font-medium">Licenciatura en Ingeniería Informática</h4>
+                                <span class="text-accent text-sm">2018 - 2025</span>
+                            </div>
+                            <h5 class="text-gray-300 mb-3">Universidad Autónoma Gabriel René Moreno (U.A.G.R.M.)</h5>
+                            <p class="text-gray-400 text-sm">
+                                Santa Cruz, Bolivia. Fecha de graduación prevista: 2025 (en proyecto final).
+                                Especialización en desarrollo de software y tecnologías web modernas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-6 bg-gray-800">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 animate-fade-in">
+                Proyectos <span class="text-accent">Destacados</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1: Tecno Believe -->
+                <div class="project-card bg-gray-900 rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-500 animate-fade-in-up">
+                    <div class="h-56 overflow-hidden relative group">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition duration-500" 
+                             src="https://storage.googleapis.com/uxpilot-auth.appspot.com/2ec72b3773-342bc83e16f7243beb12.png" 
+                             alt="Tecno Believe - Sistema de Gestión de Eventos">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-60"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Tecno Believe</h3>
+                        <p class="text-gray-300 mb-4 text-sm">Sistema de gestión de eventos con reservas QR, pagos Stripe, modo claro/oscuro y testing automatizado.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-primary text-xs rounded text-white">Laravel 11</span>
+                            <span class="px-2 py-1 bg-primary text-xs rounded text-white">Livewire</span>
+                            <span class="px-2 py-1 bg-primary text-xs rounded text-white">Stripe</span>
+                            <span class="px-2 py-1 bg-primary text-xs rounded text-white">Docker</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <a href="#" class="text-accent hover:underline flex items-center gap-1 transform hover:scale-105 transition">
+                                <i class="fa-solid fa-link text-sm"></i> Demo
+                            </a>
+                            <a href="https://github.com/marcodavidd020" target="_blank" class="text-white hover:text-accent transition flex items-center gap-1 transform hover:scale-105">
+                                <i class="fa-brands fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2: Only Pets -->
+                <div class="project-card bg-gray-900 rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-500 animate-fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="h-56 overflow-hidden relative group">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition duration-500" 
+                             src="https://storage.googleapis.com/uxpilot-auth.appspot.com/bdce5c9cc9-4c80c4c2cd0a2c21167a.png" 
+                             alt="Only Pets - Sistema de Gestión Veterinaria">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-60"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Only Pets</h3>
+                        <p class="text-gray-300 mb-4 text-sm">Sistema veterinario con roles diferenciados, historiales clínicos, reportes PDF y control granular de permisos.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-primary text-xs rounded text-white">Laravel 10</span>
+                            <span class="px-2 py-1 bg-primary text-xs rounded text-white">Livewire 3</span>
+                            <span class="px-2 py-1 bg-primary text-xs rounded text-white">DomPDF</span>
+                            <span class="px-2 py-1 bg-primary text-xs rounded text-white">PHPUnit</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <a href="#" class="text-accent hover:underline flex items-center gap-1 transform hover:scale-105 transition">
+                                <i class="fa-solid fa-link text-sm"></i> Demo
+                            </a>
+                            <a href="https://github.com/marcodavidd020" target="_blank" class="text-white hover:text-accent transition flex items-center gap-1 transform hover:scale-105">
+                                <i class="fa-brands fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3: Clothing Ecommerce -->
+                <div class="project-card bg-gray-900 rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-500 animate-fade-in-up" style="animation-delay: 0.4s;">
+                    <div class="h-56 overflow-hidden relative group">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition duration-500" 
+                             src="https://storage.googleapis.com/uxpilot-auth.appspot.com/f756973b89-bd6c9a08ce1d508286d2.png" 
+                             alt="Clothing Ecommerce - App Móvil">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-60"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Clothing Ecommerce</h3>
+                        <p class="text-gray-300 mb-4 text-sm">API REST escalable con NestJS y app móvil Flutter con navegación, filtros y animaciones optimizadas.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-primary text-xs rounded text-white">NestJS</span>
+                            <span class="px-2 py-1 bg-primary text-xs rounded text-white">Flutter</span>
+                            <span class="px-2 py-1 bg-primary text-xs rounded text-white">TypeScript</span>
+                            <span class="px-2 py-1 bg-primary text-xs rounded text-white">Figma</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <a href="#" class="text-accent hover:underline flex items-center gap-1 transform hover:scale-105 transition">
+                                <i class="fa-solid fa-link text-sm"></i> Demo
+                            </a>
+                            <a href="https://github.com/marcodavidd020" target="_blank" class="text-white hover:text-accent transition flex items-center gap-1 transform hover:scale-105">
+                                <i class="fa-brands fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 bg-gray-900">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 animate-fade-in">
+                Trabajemos <span class="text-accent">Juntos</span>
+            </h2>
+            <div class="flex flex-col lg:flex-row gap-12 max-w-6xl mx-auto">
+                <div class="lg:w-1/2 animate-slide-in-left">
+                    <h3 class="text-2xl font-semibold mb-6">Información de Contacto</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-center group">
+                            <div class="w-12 h-12 rounded-lg bg-blue-900 flex items-center justify-center mr-4 group-hover:bg-accent group-hover:scale-110 transition duration-300">
+                                <i class="fa-solid fa-envelope text-accent group-hover:text-gray-900 text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-400 text-sm">Email</p>
+                                <a href="mailto:marcodaviddtc@gmail.com" class="text-gray-300 hover:text-accent transition">marcodaviddtc@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center group">
+                            <div class="w-12 h-12 rounded-lg bg-blue-900 flex items-center justify-center mr-4 group-hover:bg-accent group-hover:scale-110 transition duration-300">
+                                <i class="fa-solid fa-phone text-accent group-hover:text-gray-900 text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-400 text-sm">Teléfono</p>
+                                <a href="tel:+59167733399" class="text-gray-300 hover:text-accent transition">+591 67733399</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center group">
+                            <div class="w-12 h-12 rounded-lg bg-blue-900 flex items-center justify-center mr-4 group-hover:bg-accent group-hover:scale-110 transition duration-300">
+                                <i class="fa-solid fa-location-dot text-accent group-hover:text-gray-900 text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-400 text-sm">Ubicación</p>
+                                <span class="text-gray-300">Santa Cruz, Bolivia</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-2xl font-semibold mt-10 mb-6">Conectemos</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://linkedin.com/in/marco-david-toledo-canna-813bb2165" target="_blank" 
+                           class="w-12 h-12 rounded-full bg-blue-700 flex items-center justify-center hover:bg-blue-800 transform hover:scale-110 transition duration-300">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/marcodavidd020" target="_blank" 
+                           class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center hover:bg-gray-600 transform hover:scale-110 transition duration-300">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                        <a href="mailto:marcodaviddtc@gmail.com" 
+                           class="w-12 h-12 rounded-full bg-accent flex items-center justify-center hover:bg-opacity-80 transform hover:scale-110 transition duration-300">
+                            <i class="fa-solid fa-envelope text-gray-900"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 animate-slide-in-right">
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-300 mb-2 font-medium">Nombre</label>
+                            <input type="text" id="name" name="name" 
+                                   class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition duration-300" 
+                                   required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-300 mb-2 font-medium">Email</label>
+                            <input type="email" id="email" name="email" 
+                                   class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition duration-300" 
+                                   required>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-gray-300 mb-2 font-medium">Asunto</label>
+                            <input type="text" id="subject" name="subject" 
+                                   class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition duration-300" 
+                                   required>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-300 mb-2 font-medium">Mensaje</label>
+                            <textarea id="message" name="message" rows="5" 
+                                      class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition duration-300" 
+                                      required></textarea>
+                        </div>
+                        <button type="submit" 
+                                class="w-full bg-accent text-gray-900 font-medium py-3 rounded-lg hover:bg-opacity-90 transform hover:scale-105 transition duration-300 flex items-center justify-center">
+                            <i class="fa-solid fa-paper-plane mr-2"></i>
+                            Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-10 px-6 border-t border-gray-700">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-center md:text-left mb-6 md:mb-0">
+                    <div class="text-xl font-bold mb-2">
+                        <span class="text-accent">Marco</span>Portfolio
+                    </div>
+                    <p class="text-gray-400">
+                        Full Stack Developer creando experiencias digitales excepcionales
+                    </p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://linkedin.com/in/marco-david-toledo-canna-813bb2165" target="_blank" 
+                       class="text-gray-400 hover:text-accent transition transform hover:scale-110">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/marcodavidd020" target="_blank" 
+                       class="text-gray-400 hover:text-accent transition transform hover:scale-110">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="mailto:marcodaviddtc@gmail.com" 
+                       class="text-gray-400 hover:text-accent transition transform hover:scale-110">
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-500">
+                    © 2024 Marco David Toledo Canna. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html> 
