@@ -4,8 +4,8 @@
   "description": "Portfolio personal de Marco David Toledo Canna - Full Stack Developer",
   "main": "index.html",
   "scripts": {
-    "build": "echo 'Static site - no build needed'",
-    "start": "serve -s .",
+    "build": "mkdir -p public && cp *.html *.css *.js *.txt *.xml public/ && cp -r assets public/ 2>/dev/null || true",
+    "start": "serve -s public",
     "dev": "serve -s ."
   },
   "keywords": [

@@ -1,5 +1,11 @@
 {
+  "buildCommand": "npm run build",
+  "outputDirectory": "public",
   "rewrites": [
+    {
+      "source": "/skills",
+      "destination": "/skills.html"
+    },
     {
       "source": "/(.*)",
       "destination": "/index.html"
