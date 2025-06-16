@@ -19,4 +19,18 @@ package-lock.json
 
 # OS files
 .DS_Store
-Thumbs.db 
+Thumbs.db
+
+# Keep these files for deployment
+!assets/
+!*.html
+!*.css
+!*.js
+!*.pdf
+!*.png
+!*.jpg
+!*.jpeg
+!*.svg
+!*.ico
+!robots.txt
+!sitemap.xml 
