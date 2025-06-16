@@ -486,18 +486,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('🚀 Portfolio loaded successfully! Thanks for checking the console 😄');
 });
 
-// Service Worker registration for PWA (optional)
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function() {
-        navigator.serviceWorker.register('/sw.js')
-            .then(function(registration) {
-                console.log('ServiceWorker registration successful');
-            })
-            .catch(function(err) {
-                console.log('ServiceWorker registration failed');
-            });
-    });
-}
+// Service Worker removed - not needed for this portfolio
 
 // Error handling
 window.addEventListener('error', function(e) {
