@@ -4,7 +4,7 @@
   "description": "Portfolio personal de Marco David Toledo Canna - Full Stack Developer",
   "main": "index.html",
   "scripts": {
-    "build": "mkdir -p public && cp *.html *.css *.js *.txt *.xml public/ && cp -r assets public/ 2>/dev/null || true",
+    "build": "rm -rf public && mkdir -p public && cp *.html *.css *.js *.txt *.xml public/ && cp -r assets public/ && sed -i 's|src=\"assets/|src=\"/assets/|g' public/*.html && sed -i 's|href=\"assets/|href=\"/assets/|g' public/*.html",
     "start": "serve -s public",
     "dev": "serve -s ."
   },
