@@ -56,7 +56,7 @@ const translations = {
 let currentLanguage = localStorage.getItem('language') || 'es';
 
 // Language functions
-function updateLanguage(lang) {
+function updateLanguage(lang, showNotification = false) {
     currentLanguage = lang;
     localStorage.setItem('language', lang);
     
@@ -77,12 +77,15 @@ function updateLanguage(lang) {
     // Update page language attribute
     document.documentElement.lang = lang;
     
-    // Show notification
-    showNotification(`Idioma cambiado a ${lang === 'es' ? 'Español' : 'English'}`, 'success');
+    // Show notification only when explicitly requested (user action)
+    if (showNotification) {
+        const message = lang === 'es' ? 'Idioma cambiado a Español' : 'Language changed to English';
+        showNotificationMessage(message, 'success');
+    }
 }
 
 // Notification system
-function showNotification(message, type = 'info') {
+function showNotificationMessage(message, type = 'info') {
     const existingNotification = document.querySelector('.notification');
     if (existingNotification) {
         existingNotification.remove();
@@ -213,8 +216,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize cursor animation
     initCursorAnimation();
     
-    // Initialize language system
-    updateLanguage(currentLanguage);
+    // Initialize language system (without notification)
+    updateLanguage(currentLanguage, false);
     
     // Language selector functionality
     const languageSelector = document.getElementById('language-selector');
@@ -259,7 +262,7 @@ document.addEventListener('DOMContentLoaded', function() {
             option.addEventListener('click', (e) => {
                 e.stopPropagation();
                 const lang = option.getAttribute('data-lang');
-                updateLanguage(lang);
+                updateLanguage(lang, true);
                 
                 // Hide dropdown with animation
                 languageDropdown.classList.remove('show');

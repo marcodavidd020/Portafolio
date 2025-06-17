@@ -121,7 +121,7 @@
     </header>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed inset-0 bg-gray-900 bg-opacity-95 backdrop-blur-sm z-30 hidden">
+    <div id="mobile-menu" class="fixed inset-0 bg-gray-900 bg-opacity-95 backdrop-blur-sm z-50 hidden">
         <div class="flex flex-col items-center justify-center h-full space-y-8 text-xl">
             <a href="index.html#home" class="mobile-nav-link text-white hover:text-accent transition duration-300" data-i18n="nav_home">Inicio</a>
             <a href="index.html#about" class="mobile-nav-link text-white hover:text-accent transition duration-300" data-i18n="nav_about">Sobre Mí</a>
@@ -338,8 +338,8 @@
                 <!-- Backend Skills -->
                 <div id="backend-proficiency" class="bg-gray-800 rounded-lg p-6 shadow-lg skill-card">
                     <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 rounded-lg bg-blue-900 flex items-center justify-center mr-4">
-                            <i class="fa-solid fa-server text-2xl text-accent"></i>
+                        <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center mr-4">
+                            <i class="fa-solid fa-server text-2xl text-white"></i>
                         </div>
                         <h3 class="text-xl font-semibold">Backend</h3>
                     </div>
@@ -347,42 +347,62 @@
                     <!-- Skill Bars -->
                     <div class="space-y-4">
                         <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-300">Laravel</span>
-                                <span class="text-accent">95%</span>
+                            <div class="flex items-center justify-between mb-1">
+                                <div class="flex items-center">
+                                    <div class="w-6 h-6 rounded bg-red-500 flex items-center justify-center mr-2">
+                                        <i class="fa-brands fa-laravel text-white text-xs"></i>
+                                    </div>
+                                    <span class="text-gray-300">Laravel</span>
+                                </div>
+                                <span class="text-accent font-semibold">95%</span>
                             </div>
                             <div class="h-2 bg-gray-700 rounded-full">
-                                <div class="h-2 bg-accent rounded-full skill-bar" style="width: 95%"></div>
+                                <div class="h-2 bg-gradient-to-r from-red-500 to-red-400 rounded-full skill-bar" style="width: 95%"></div>
                             </div>
                         </div>
                         
                         <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-300">NestJS</span>
-                                <span class="text-accent">85%</span>
+                            <div class="flex items-center justify-between mb-1">
+                                <div class="flex items-center">
+                                    <div class="w-6 h-6 rounded bg-red-600 flex items-center justify-center mr-2">
+                                        <i class="fa-solid fa-n text-white text-xs font-bold"></i>
+                                    </div>
+                                    <span class="text-gray-300">NestJS</span>
+                                </div>
+                                <span class="text-accent font-semibold">85%</span>
                             </div>
                             <div class="h-2 bg-gray-700 rounded-full">
-                                <div class="h-2 bg-accent rounded-full skill-bar" style="width: 85%"></div>
+                                <div class="h-2 bg-gradient-to-r from-red-600 to-red-500 rounded-full skill-bar" style="width: 85%"></div>
                             </div>
                         </div>
                         
                         <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-300">PHP</span>
-                                <span class="text-accent">90%</span>
+                            <div class="flex items-center justify-between mb-1">
+                                <div class="flex items-center">
+                                    <div class="w-6 h-6 rounded bg-purple-600 flex items-center justify-center mr-2">
+                                        <i class="fa-brands fa-php text-white text-xs"></i>
+                                    </div>
+                                    <span class="text-gray-300">PHP</span>
+                                </div>
+                                <span class="text-accent font-semibold">90%</span>
                             </div>
                             <div class="h-2 bg-gray-700 rounded-full">
-                                <div class="h-2 bg-accent rounded-full skill-bar" style="width: 90%"></div>
+                                <div class="h-2 bg-gradient-to-r from-purple-600 to-purple-500 rounded-full skill-bar" style="width: 90%"></div>
                             </div>
                         </div>
                         
                         <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-300">TypeScript</span>
-                                <span class="text-accent">80%</span>
+                            <div class="flex items-center justify-between mb-1">
+                                <div class="flex items-center">
+                                    <div class="w-6 h-6 rounded bg-blue-600 flex items-center justify-center mr-2">
+                                        <span class="text-white text-xs font-bold">TS</span>
+                                    </div>
+                                    <span class="text-gray-300">TypeScript</span>
+                                </div>
+                                <span class="text-accent font-semibold">80%</span>
                             </div>
                             <div class="h-2 bg-gray-700 rounded-full">
-                                <div class="h-2 bg-accent rounded-full skill-bar" style="width: 80%"></div>
+                                <div class="h-2 bg-gradient-to-r from-blue-600 to-blue-500 rounded-full skill-bar" style="width: 80%"></div>
                             </div>
                         </div>
                     </div>
@@ -391,8 +411,8 @@
                 <!-- Frontend Skills -->
                 <div id="frontend-proficiency" class="bg-gray-800 rounded-lg p-6 shadow-lg skill-card">
                     <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 rounded-lg bg-blue-900 flex items-center justify-center mr-4">
-                            <i class="fa-solid fa-code text-2xl text-accent"></i>
+                        <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-600 to-cyan-600 flex items-center justify-center mr-4">
+                            <i class="fa-solid fa-code text-2xl text-white"></i>
                         </div>
                         <h3 class="text-xl font-semibold">Frontend</h3>
                     </div>
@@ -400,42 +420,62 @@
                     <!-- Skill Bars -->
                     <div class="space-y-4">
                         <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-300">Flutter</span>
-                                <span class="text-accent">90%</span>
+                            <div class="flex items-center justify-between mb-1">
+                                <div class="flex items-center">
+                                    <div class="w-6 h-6 rounded bg-blue-500 flex items-center justify-center mr-2">
+                                        <i class="fa-solid fa-mobile-alt text-white text-xs"></i>
+                                    </div>
+                                    <span class="text-gray-300">Flutter</span>
+                                </div>
+                                <span class="text-accent font-semibold">90%</span>
                             </div>
                             <div class="h-2 bg-gray-700 rounded-full">
-                                <div class="h-2 bg-accent rounded-full skill-bar" style="width: 90%"></div>
+                                <div class="h-2 bg-gradient-to-r from-blue-500 to-blue-400 rounded-full skill-bar" style="width: 90%"></div>
                             </div>
                         </div>
                         
                         <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-300">Livewire</span>
-                                <span class="text-accent">85%</span>
+                            <div class="flex items-center justify-between mb-1">
+                                <div class="flex items-center">
+                                    <div class="w-6 h-6 rounded bg-red-500 flex items-center justify-center mr-2">
+                                        <i class="fa-solid fa-bolt text-white text-xs"></i>
+                                    </div>
+                                    <span class="text-gray-300">Livewire</span>
+                                </div>
+                                <span class="text-accent font-semibold">85%</span>
                             </div>
                             <div class="h-2 bg-gray-700 rounded-full">
-                                <div class="h-2 bg-accent rounded-full skill-bar" style="width: 85%"></div>
+                                <div class="h-2 bg-gradient-to-r from-red-500 to-pink-500 rounded-full skill-bar" style="width: 85%"></div>
                             </div>
                         </div>
                         
                         <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-300">Alpine.js</span>
-                                <span class="text-accent">80%</span>
+                            <div class="flex items-center justify-between mb-1">
+                                <div class="flex items-center">
+                                    <div class="w-6 h-6 rounded bg-green-500 flex items-center justify-center mr-2">
+                                        <i class="fa-solid fa-mountain text-white text-xs"></i>
+                                    </div>
+                                    <span class="text-gray-300">Alpine.js</span>
+                                </div>
+                                <span class="text-accent font-semibold">80%</span>
                             </div>
                             <div class="h-2 bg-gray-700 rounded-full">
-                                <div class="h-2 bg-accent rounded-full skill-bar" style="width: 80%"></div>
+                                <div class="h-2 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full skill-bar" style="width: 80%"></div>
                             </div>
                         </div>
                         
                         <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-300">Tailwind CSS</span>
-                                <span class="text-accent">95%</span>
+                            <div class="flex items-center justify-between mb-1">
+                                <div class="flex items-center">
+                                    <div class="w-6 h-6 rounded bg-cyan-500 flex items-center justify-center mr-2">
+                                        <i class="fa-solid fa-wind text-white text-xs"></i>
+                                    </div>
+                                    <span class="text-gray-300">Tailwind CSS</span>
+                                </div>
+                                <span class="text-accent font-semibold">95%</span>
                             </div>
                             <div class="h-2 bg-gray-700 rounded-full">
-                                <div class="h-2 bg-accent rounded-full skill-bar" style="width: 95%"></div>
+                                <div class="h-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full skill-bar" style="width: 95%"></div>
                             </div>
                         </div>
                     </div>
@@ -444,8 +484,8 @@
                 <!-- Database Skills -->
                 <div id="database-proficiency" class="bg-gray-800 rounded-lg p-6 shadow-lg skill-card">
                     <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 rounded-lg bg-blue-900 flex items-center justify-center mr-4">
-                            <i class="fa-solid fa-database text-2xl text-accent"></i>
+                        <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-green-600 to-emerald-600 flex items-center justify-center mr-4">
+                            <i class="fa-solid fa-database text-2xl text-white"></i>
                         </div>
                         <h3 class="text-xl font-semibold">Base de Datos</h3>
                     </div>
@@ -453,42 +493,62 @@
                     <!-- Skill Bars -->
                     <div class="space-y-4">
                         <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-300">MySQL</span>
-                                <span class="text-accent">90%</span>
+                            <div class="flex items-center justify-between mb-1">
+                                <div class="flex items-center">
+                                    <div class="w-6 h-6 rounded bg-orange-500 flex items-center justify-center mr-2">
+                                        <i class="fa-solid fa-database text-white text-xs"></i>
+                                    </div>
+                                    <span class="text-gray-300">MySQL</span>
+                                </div>
+                                <span class="text-accent font-semibold">90%</span>
                             </div>
                             <div class="h-2 bg-gray-700 rounded-full">
-                                <div class="h-2 bg-accent rounded-full skill-bar" style="width: 90%"></div>
+                                <div class="h-2 bg-gradient-to-r from-orange-500 to-orange-400 rounded-full skill-bar" style="width: 90%"></div>
                             </div>
                         </div>
                         
                         <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-300">PostgreSQL</span>
-                                <span class="text-accent">80%</span>
+                            <div class="flex items-center justify-between mb-1">
+                                <div class="flex items-center">
+                                    <div class="w-6 h-6 rounded bg-blue-600 flex items-center justify-center mr-2">
+                                        <i class="fa-solid fa-elephant text-white text-xs"></i>
+                                    </div>
+                                    <span class="text-gray-300">PostgreSQL</span>
+                                </div>
+                                <span class="text-accent font-semibold">80%</span>
                             </div>
                             <div class="h-2 bg-gray-700 rounded-full">
-                                <div class="h-2 bg-accent rounded-full skill-bar" style="width: 80%"></div>
+                                <div class="h-2 bg-gradient-to-r from-blue-600 to-blue-500 rounded-full skill-bar" style="width: 80%"></div>
                             </div>
                         </div>
                         
                         <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-300">Eloquent ORM</span>
-                                <span class="text-accent">95%</span>
+                            <div class="flex items-center justify-between mb-1">
+                                <div class="flex items-center">
+                                    <div class="w-6 h-6 rounded bg-red-500 flex items-center justify-center mr-2">
+                                        <i class="fa-solid fa-layer-group text-white text-xs"></i>
+                                    </div>
+                                    <span class="text-gray-300">Eloquent ORM</span>
+                                </div>
+                                <span class="text-accent font-semibold">95%</span>
                             </div>
                             <div class="h-2 bg-gray-700 rounded-full">
-                                <div class="h-2 bg-accent rounded-full skill-bar" style="width: 95%"></div>
+                                <div class="h-2 bg-gradient-to-r from-red-500 to-red-400 rounded-full skill-bar" style="width: 95%"></div>
                             </div>
                         </div>
                         
                         <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-300">Firebase</span>
-                                <span class="text-accent">75%</span>
+                            <div class="flex items-center justify-between mb-1">
+                                <div class="flex items-center">
+                                    <div class="w-6 h-6 rounded bg-yellow-500 flex items-center justify-center mr-2">
+                                        <i class="fa-solid fa-fire text-white text-xs"></i>
+                                    </div>
+                                    <span class="text-gray-300">Firebase</span>
+                                </div>
+                                <span class="text-accent font-semibold">75%</span>
                             </div>
                             <div class="h-2 bg-gray-700 rounded-full">
-                                <div class="h-2 bg-accent rounded-full skill-bar" style="width: 75%"></div>
+                                <div class="h-2 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full skill-bar" style="width: 75%"></div>
                             </div>
                         </div>
                     </div>
