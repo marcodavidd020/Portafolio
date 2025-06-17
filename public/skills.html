@@ -7,8 +7,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script> window.FontAwesomeConfig = { autoReplaceSvg: 'nest'};</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- Font Awesome CSS fallback -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
     <style>::-webkit-scrollbar { display: none;}</style>
     
     <script>tailwind.config = {
@@ -39,22 +37,6 @@
       /* Preserve Font Awesome icons */
       .fa, .fas, .far, .fal, .fab {
         font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
-      }
-      
-      /* Ensure icons are visible */
-      .fa-solid, .fa-brands, .fa-regular {
-        font-family: "Font Awesome 6 Free" !important;
-        font-weight: 900 !important;
-        display: inline-block !important;
-        font-style: normal !important;
-        font-variant: normal !important;
-        text-rendering: auto !important;
-        line-height: 1 !important;
-      }
-      
-      .fa-brands {
-        font-family: "Font Awesome 6 Brands" !important;
-        font-weight: 400 !important;
       }
       
       /* Skill bar animations */
@@ -747,7 +729,7 @@
                     <div class="md:w-1/3 bg-gray-800 p-8">
                         <div class="flex flex-col items-center">
                             <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-accent mb-6">
-                                <img class="w-full h-full object-cover" src="assets/profile.jpeg" alt="Marco David Toledo Canna">
+                                <img class="w-full h-full object-cover" src="/profile.jpeg" alt="Marco David Toledo Canna">
                             </div>
                             <h3 class="text-2xl font-bold mb-1">Marco David Toledo Canna</h3>
                             <p class="text-accent mb-4">Full Stack Developer</p>
@@ -813,7 +795,7 @@
                         </div>
                         
                         <div class="mt-6">
-                            <a href="assets/CV_Marco_David_Toledo_Canna.pdf" download="CV_Marco_David_Toledo_Canna.pdf" id="download-cv-section" class="w-full flex items-center justify-center p-4 bg-accent text-gray-900 rounded-lg hover:bg-opacity-90 transition font-medium cursor-pointer">
+                            <a href="/CV_Marco_David_Toledo_Canna.pdf" download="CV_Marco_David_Toledo_Canna.pdf" id="download-cv-section" class="w-full flex items-center justify-center p-4 bg-accent text-gray-900 rounded-lg hover:bg-opacity-90 transition font-medium cursor-pointer">
                                 <i class="fa-solid fa-file-pdf mr-2"></i>
                                 Descargar CV Completo (PDF)
                             </a>
