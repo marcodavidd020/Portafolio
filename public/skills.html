@@ -7,6 +7,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script> window.FontAwesomeConfig = { autoReplaceSvg: 'nest'};</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Font Awesome CSS fallback -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
     <style>::-webkit-scrollbar { display: none;}</style>
     
     <script>tailwind.config = {
@@ -37,6 +39,22 @@
       /* Preserve Font Awesome icons */
       .fa, .fas, .far, .fal, .fab {
         font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
+      }
+      
+      /* Ensure icons are visible */
+      .fa-solid, .fa-brands, .fa-regular {
+        font-family: "Font Awesome 6 Free" !important;
+        font-weight: 900 !important;
+        display: inline-block !important;
+        font-style: normal !important;
+        font-variant: normal !important;
+        text-rendering: auto !important;
+        line-height: 1 !important;
+      }
+      
+      .fa-brands {
+        font-family: "Font Awesome 6 Brands" !important;
+        font-weight: 400 !important;
       }
       
       /* Skill bar animations */
