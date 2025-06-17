@@ -205,7 +205,3 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más det
 🚀 **Live Demo**: [https://portafolio-gold-five-53.vercel.app/](https://portafolio-gold-five-53.vercel.app/)
 
 Figma [https://www.figma.com/design/mJUdUuazudREBcU9vqueUM/Portafolio?node-id=0-1&t=4MrqKyiKdrdGz4IM-1](https://www.figma.com/design/mJUdUuazudREBcU9vqueUM/Portafolio?node-id=0-1&t=4MrqKyiKdrdGz4IM-1)
-
----
-
-*Desarrollado con ❤️ por Marco David Toledo Canna* 
