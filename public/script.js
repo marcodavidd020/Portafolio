@@ -1,9 +1,10 @@
 // Portfolio JavaScript - Marco David Toledo Canna
 // ==============================================
 
-// Translations object
+// Complete translations object including skills.html
 const translations = {
     es: {
+        // Navigation
         nav_home: "Inicio",
         nav_about: "Sobre Mí", 
         nav_experience: "Experiencia",
@@ -11,11 +12,15 @@ const translations = {
         nav_projects: "Proyectos", 
         nav_contact: "Contacto",
         download_cv: "Descargar CV",
+        
+        // Hero section
         hero_greeting: "Hola, soy",
         hero_title: "Full Stack Developer",
         hero_description: "Desarrollador especializado en Laravel, NestJS y Flutter. Creo soluciones robustas, escalables y de alta calidad con enfoque en testing y buenas prácticas.",
         hero_view_projects: "Ver Proyectos",
         hero_view_skills: "Ver Habilidades", 
+        
+        // Contact section
         contact_title: "Trabajemos Juntos",
         contact_info: "Información de Contacto",
         contact_email: "Email",
@@ -25,9 +30,41 @@ const translations = {
         contact_form_email: "Email",
         contact_form_subject: "Asunto",
         contact_form_message: "Mensaje",
-        contact_form_send: "Enviar Mensaje"
+        contact_form_send: "Enviar Mensaje",
+        
+        // Skills page translations
+        professional_profile: "Perfil",
+        professional: "Profesional",
+        professional_experience: "Experiencia Profesional",
+        job_fullstack: "Full Stack Developer",
+        date_present: "2022 - Presente",
+        independent_projects: "Proyectos Independientes",
+        job_fullstack_desc: "Desarrollo de aplicaciones web completas con Laravel, sistemas de gestión empresarial, e-commerce y aplicaciones móviles con Flutter.",
+        engineering_student: "Estudiante de Ingeniería",
+        university_name: "Universidad Autónoma Gabriel René Moreno",
+        engineering_desc: "Licenciatura en Ingeniería Informática. Especialización en desarrollo de software y arquitectura de sistemas.",
+        key_skills: "Habilidades Clave",
+        technical_skills: "Técnicas",
+        soft_skills: "Blandas",
+        fullstack_dev: "Desarrollo Full Stack",
+        responsive_design: "Diseño Responsive",
+        restful_apis: "APIs RESTful",
+        db_architecture: "Arquitectura de BD",
+        devops_docker: "DevOps & Docker",
+        self_taught: "Autodidacta",
+        problem_solving: "Resolución de Problemas",
+        teamwork: "Trabajo en Equipo",
+        effective_communication: "Comunicación Efectiva",
+        agile_methodologies: "Metodologías Ágiles",
+        education: "Educación",
+        degree_title: "Licenciatura en Ingeniería Informática",
+        degree_desc: "Santa Cruz, Bolivia. Especialización en desarrollo de software y tecnologías web modernas.",
+        github_projects: "Proyectos en GitHub",
+        technical_competencies: "Competencias",
+        technical: "Técnicas"
     },
     en: {
+        // Navigation
         nav_home: "Home",
         nav_about: "About Me",
         nav_experience: "Experience", 
@@ -35,11 +72,15 @@ const translations = {
         nav_projects: "Projects",
         nav_contact: "Contact",
         download_cv: "Download CV", 
+        
+        // Hero section
         hero_greeting: "Hi, I'm",
         hero_title: "Full Stack Developer",
         hero_description: "Developer specialized in Laravel, NestJS and Flutter. I create robust, scalable and high-quality solutions with focus on testing and best practices.",
         hero_view_projects: "View Projects",
         hero_view_skills: "View Skills",
+        
+        // Contact section
         contact_title: "Let's Work Together", 
         contact_info: "Contact Information",
         contact_email: "Email",
@@ -49,7 +90,38 @@ const translations = {
         contact_form_email: "Email", 
         contact_form_subject: "Subject",
         contact_form_message: "Message",
-        contact_form_send: "Send Message"
+        contact_form_send: "Send Message",
+        
+        // Skills page translations
+        professional_profile: "Professional",
+        professional: "Profile",
+        professional_experience: "Professional Experience",
+        job_fullstack: "Full Stack Developer",
+        date_present: "2022 - Present",
+        independent_projects: "Independent Projects",
+        job_fullstack_desc: "Development of complete web applications with Laravel, business management systems, e-commerce and mobile applications with Flutter.",
+        engineering_student: "Engineering Student",
+        university_name: "Universidad Autónoma Gabriel René Moreno",
+        engineering_desc: "Bachelor's Degree in Computer Engineering. Specialization in software development and systems architecture.",
+        key_skills: "Key Skills",
+        technical_skills: "Technical",
+        soft_skills: "Soft",
+        fullstack_dev: "Full Stack Development",
+        responsive_design: "Responsive Design",
+        restful_apis: "RESTful APIs",
+        db_architecture: "Database Architecture",
+        devops_docker: "DevOps & Docker",
+        self_taught: "Self-taught",
+        problem_solving: "Problem Solving",
+        teamwork: "Teamwork",
+        effective_communication: "Effective Communication",
+        agile_methodologies: "Agile Methodologies",
+        education: "Education",
+        degree_title: "Bachelor's Degree in Computer Engineering",
+        degree_desc: "Santa Cruz, Bolivia. Specialization in software development and modern web technologies.",
+        github_projects: "GitHub Projects",
+        technical_competencies: "Technical",
+        technical: "Competencies"
     }
 };
 
@@ -57,6 +129,7 @@ let currentLanguage = localStorage.getItem('language') || 'es';
 
 // Language functions
 function updateLanguage(lang, showNotification = false) {
+    console.log('🌍 Updating language to:', lang);
     currentLanguage = lang;
     localStorage.setItem('language', lang);
     
@@ -64,6 +137,7 @@ function updateLanguage(lang, showNotification = false) {
     const currentLangEl = document.getElementById('current-language');
     if (currentLangEl) {
         currentLangEl.textContent = lang.toUpperCase();
+        console.log('🌍 Updated language indicator:', lang.toUpperCase());
     }
     
     // Update all elements with data-i18n attribute
@@ -82,6 +156,8 @@ function updateLanguage(lang, showNotification = false) {
         const message = lang === 'es' ? 'Idioma cambiado a Español' : 'Language changed to English';
         showNotificationMessage(message, 'success');
     }
+    
+    console.log('🌍 Language updated successfully to:', lang);
 }
 
 // Notification system
@@ -199,7 +275,7 @@ function initCursorAnimation() {
     interactiveElements.forEach(element => {
         element.addEventListener('mouseenter', () => {
             cursor.style.transform = 'scale(1.5)';
-            cursorTrail.style.transform = 'scale(1.2)';
+            cursorTrail.style.transform = 'scale(1.5)';
         });
         
         element.addEventListener('mouseleave', () => {
@@ -209,9 +285,51 @@ function initCursorAnimation() {
     });
 }
 
-// Initialize everything when DOM is loaded
+// Enhanced CSS for dropdown
+function addDropdownStyles() {
+    const style = document.createElement('style');
+    style.textContent = `
+        #language-dropdown {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+        }
+        
+        #language-dropdown.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        #mobile-menu {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        #mobile-menu.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        #language-selector.active i.fa-chevron-down {
+            transform: rotate(180deg);
+        }
+        
+        #language-selector i.fa-chevron-down {
+            transition: transform 0.3s ease;
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+// DOM Content Loaded Event
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('🚀 Marco Portfolio - Initializing...');
+    console.log('🚀 DOM Loaded - Initializing Portfolio');
+    
+    // Add enhanced styles
+    addDropdownStyles();
     
     // Initialize cursor animation
     initCursorAnimation();
@@ -224,10 +342,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const languageDropdown = document.getElementById('language-dropdown');
     const languageOptions = document.querySelectorAll('.language-option');
     
+    console.log('🌍 Language elements:', {
+        selector: !!languageSelector,
+        dropdown: !!languageDropdown,
+        options: languageOptions.length
+    });
+    
     if (languageSelector && languageDropdown) {
         // Toggle dropdown with smooth animation
         languageSelector.addEventListener('click', (e) => {
             e.stopPropagation();
+            console.log('🌍 Language selector clicked');
             
             if (languageDropdown.classList.contains('show')) {
                 // Hide dropdown
@@ -236,6 +361,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 setTimeout(() => {
                     languageDropdown.classList.add('hidden');
                 }, 300);
+                console.log('🌍 Language dropdown hidden');
             } else {
                 // Show dropdown
                 languageDropdown.classList.remove('hidden');
@@ -243,17 +369,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 setTimeout(() => {
                     languageDropdown.classList.add('show');
                 }, 10);
+                console.log('🌍 Language dropdown shown');
             }
         });
         
         // Close dropdown when clicking outside
         document.addEventListener('click', (e) => {
             if (!languageSelector.contains(e.target) && !languageDropdown.contains(e.target)) {
-                languageDropdown.classList.remove('show');
-                languageSelector.classList.remove('active');
-                setTimeout(() => {
-                    languageDropdown.classList.add('hidden');
-                }, 300);
+                if (languageDropdown.classList.contains('show')) {
+                    languageDropdown.classList.remove('show');
+                    languageSelector.classList.remove('active');
+                    setTimeout(() => {
+                        languageDropdown.classList.add('hidden');
+                    }, 300);
+                }
             }
         });
         
@@ -262,6 +391,7 @@ document.addEventListener('DOMContentLoaded', function() {
             option.addEventListener('click', (e) => {
                 e.stopPropagation();
                 const lang = option.getAttribute('data-lang');
+                console.log('🌍 Language option clicked:', lang);
                 updateLanguage(lang, true);
                 
                 // Hide dropdown with animation
@@ -276,6 +406,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 createSparkle(rect.left + rect.width / 2, rect.top + rect.height / 2);
             });
         });
+    } else {
+        console.log('⚠️ Language selector elements not found');
     }
 
     // Mobile menu functionality
@@ -283,14 +415,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
+    console.log('📱 Mobile menu elements:', {
+        button: !!mobileMenuBtn,
+        menu: !!mobileMenu,
+        links: mobileNavLinks.length
+    });
+
     if (mobileMenuBtn && mobileMenu) {
-        console.log('📱 Mobile menu initialized');
+        console.log('📱 Mobile menu functionality initialized');
         
         mobileMenuBtn.addEventListener('click', function(e) {
             e.stopPropagation();
             console.log('📱 Mobile menu button clicked');
             
-            if (mobileMenu.classList.contains('hidden')) {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            
+            if (isHidden) {
                 // Show mobile menu
                 mobileMenu.classList.remove('hidden');
                 document.body.style.overflow = 'hidden';
@@ -312,6 +452,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Close mobile menu when clicking on links
         mobileNavLinks.forEach(link => {
             link.addEventListener('click', function() {
+                console.log('📱 Mobile nav link clicked');
                 mobileMenu.classList.remove('show');
                 setTimeout(() => {
                     mobileMenu.classList.add('hidden');
@@ -321,17 +462,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
-                if (!mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.remove('show');
-                    setTimeout(() => {
-                        mobileMenu.classList.add('hidden');
-                        document.body.style.overflow = 'auto';
-                    }, 300);
-                }
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) {
+                mobileMenu.classList.remove('show');
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                }, 300);
             }
         });
+    } else {
+        console.log('⚠️ Mobile menu elements not found');
     }
 
     // Loading screen
@@ -340,7 +481,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Hide loading screen after page loads
         window.addEventListener('load', function() {
             setTimeout(() => {
-                loadingScreen.classList.add('hidden');
+                loadingScreen.style.opacity = '0';
                 setTimeout(() => {
                     loadingScreen.style.display = 'none';
                 }, 500);
@@ -513,7 +654,7 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = mailtoLink;
             
             // Show success message
-            showNotification('Abriendo cliente de correo...', 'success');
+            showNotificationMessage('Abriendo cliente de correo...', 'success');
             
             // Reset form
             this.reset();
@@ -549,6 +690,27 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Animate skill bars on scroll for skills page
+    const skillBars = document.querySelectorAll('.skill-bar');
+    if (skillBars.length > 0) {
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const skillBar = entry.target;
+                    const width = skillBar.style.width;
+                    skillBar.style.width = '0%';
+                    setTimeout(() => {
+                        skillBar.style.width = width;
+                    }, 300);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        skillBars.forEach(bar => {
+            skillObserver.observe(bar);
+        });
+    }
 
     console.log('✅ Marco Portfolio - JavaScript Loaded Successfully!');
 }); 
