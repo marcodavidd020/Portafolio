@@ -237,8 +237,8 @@ function createSparkle(x, y) {
 
 // Mouse Cursor Animation
 function initCursorAnimation() {
-    const cursor = document.getElementById('cursor');
-    const cursorTrail = document.getElementById('cursor-trail');
+    const cursor = safeQuerySelector('#cursor');
+    const cursorTrail = safeQuerySelector('#cursor-trail');
     
     if (!cursor || !cursorTrail || window.innerWidth <= 768) return;
     
@@ -270,7 +270,7 @@ function initCursorAnimation() {
     animateCursor();
     
     // Add hover effects
-    const interactiveElements = document.querySelectorAll('a, button, [role="button"]');
+    const interactiveElements = safeQuerySelectorAll('a, button, [role="button"]');
     
     interactiveElements.forEach(element => {
         element.addEventListener('mouseenter', () => {
@@ -294,6 +294,9 @@ function addDropdownStyles() {
             visibility: hidden;
             transform: translateY(-10px);
             transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+            right: 0;
+            left: auto;
+            min-width: 140px;
         }
         
         #language-dropdown.show {
@@ -306,6 +309,9 @@ function addDropdownStyles() {
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.3s ease, visibility 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         #mobile-menu.show {
@@ -320,8 +326,69 @@ function addDropdownStyles() {
         #language-selector i.fa-chevron-down {
             transition: transform 0.3s ease;
         }
+
+        /* Fix language dropdown positioning */
+        .relative #language-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 8px;
+            z-index: 50;
+        }
+        
+        /* Center mobile menu properly */
+        #mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(17, 24, 39, 0.95);
+            backdrop-filter: blur(8px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 50;
+        }
     `;
     document.head.appendChild(style);
+}
+
+// Global error handler to prevent crashes
+window.addEventListener('error', function(e) {
+    console.log('🚨 Global error:', e.error);
+    // Prevent the error from crashing the page
+    e.preventDefault();
+    return true;
+});
+
+// Safe querySelector function
+function safeQuerySelector(selector, context = document) {
+    try {
+        const element = context.querySelector(selector);
+        if (!element) {
+            console.warn(`⚠️ Element not found: ${selector}`);
+        }
+        return element;
+    } catch (error) {
+        console.error(`❌ Error selecting element: ${selector}`, error);
+        return null;
+    }
+}
+
+// Safe querySelectorAll function
+function safeQuerySelectorAll(selector, context = document) {
+    try {
+        const elements = context.querySelectorAll(selector);
+        if (elements.length === 0) {
+            console.warn(`⚠️ No elements found: ${selector}`);
+        }
+        return elements;
+    } catch (error) {
+        console.error(`❌ Error selecting elements: ${selector}`, error);
+        return [];
+    }
 }
 
 // DOM Content Loaded Event
@@ -338,9 +405,9 @@ document.addEventListener('DOMContentLoaded', function() {
     updateLanguage(currentLanguage, false);
     
     // Language selector functionality
-    const languageSelector = document.getElementById('language-selector');
-    const languageDropdown = document.getElementById('language-dropdown');
-    const languageOptions = document.querySelectorAll('.language-option');
+    const languageSelector = safeQuerySelector('#language-selector');
+    const languageDropdown = safeQuerySelector('#language-dropdown');
+    const languageOptions = safeQuerySelectorAll('.language-option');
     
     console.log('🌍 Language elements:', {
         selector: !!languageSelector,
@@ -411,9 +478,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Mobile menu functionality
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    const mobileMenuBtn = safeQuerySelector('#mobile-menu-btn');
+    const mobileMenu = safeQuerySelector('#mobile-menu');
+    const mobileNavLinks = safeQuerySelectorAll('.mobile-nav-link');
 
     console.log('📱 Mobile menu elements:', {
         button: !!mobileMenuBtn,
@@ -490,7 +557,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Header scroll effect
-    const header = document.getElementById('header');
+    const header = safeQuerySelector('#header');
     if (header) {
         let lastScrollY = window.scrollY;
 
@@ -522,12 +589,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Smooth scrolling for navigation links
-    const navLinks = document.querySelectorAll('a[href^="#"]');
+    const navLinks = safeQuerySelectorAll('a[href^="#"]');
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
+            const targetElement = safeQuerySelector(targetId);
             
             if (targetElement && header) {
                 const headerHeight = header.offsetHeight;
@@ -542,7 +609,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Active navigation link
-    const sections = document.querySelectorAll('section[id]');
+    const sections = safeQuerySelectorAll('section[id]');
     function updateActiveNavLink() {
         if (!header || !sections.length) return;
         
@@ -552,14 +619,14 @@ document.addEventListener('DOMContentLoaded', function() {
             const sectionTop = section.offsetTop;
             const sectionBottom = sectionTop + section.offsetHeight;
             const sectionId = section.getAttribute('id');
-            const correspondingNavLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
-            const correspondingMobileLink = document.querySelector(`.mobile-nav-link[href="#${sectionId}"]`);
+            const correspondingNavLink = safeQuerySelector(`.nav-link[href="#${sectionId}"]`);
+            const correspondingMobileLink = safeQuerySelector(`.mobile-nav-link[href="#${sectionId}"]`);
             
             if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
-                document.querySelectorAll('.nav-link').forEach(link => {
+                safeQuerySelectorAll('.nav-link').forEach(link => {
                     link.classList.remove('text-accent');
                 });
-                document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                safeQuerySelectorAll('.mobile-nav-link').forEach(link => {
                     link.classList.remove('text-accent');
                 });
                 
@@ -591,7 +658,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, observerOptions);
 
     // Observe elements for animations
-    const animateElements = document.querySelectorAll('.animate-on-scroll, .skill-card, .project-card, .experience-item');
+    const animateElements = safeQuerySelectorAll('.animate-on-scroll, .skill-card, .project-card, .experience-item');
     animateElements.forEach(el => {
         el.classList.add('animate-on-scroll');
         observer.observe(el);
@@ -624,7 +691,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Add event listeners to all CV download links
-    const cvLinks = document.querySelectorAll('a[href*="CV_Marco_David_Toledo_Canna.pdf"]');
+    const cvLinks = safeQuerySelectorAll('a[href*="CV_Marco_David_Toledo_Canna.pdf"]');
     cvLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
@@ -635,7 +702,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Contact form handling
-    const contactForm = document.querySelector('#contact-form');
+    const contactForm = safeQuerySelector('#contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -662,7 +729,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Enhanced hover effects for project cards
-    const projectCards = document.querySelectorAll('.project-card');
+    const projectCards = safeQuerySelectorAll('.project-card');
     projectCards.forEach(card => {
         card.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-10px) scale(1.02)';
@@ -676,7 +743,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Add sparkle effect to special buttons
-    const specialButtons = document.querySelectorAll('[data-i18n="hero_view_projects"], [data-i18n="hero_view_skills"]');
+    const specialButtons = safeQuerySelectorAll('[data-i18n="hero_view_projects"], [data-i18n="hero_view_skills"]');
     specialButtons.forEach(button => {
         button.addEventListener('click', (e) => {
             const rect = button.getBoundingClientRect();
@@ -692,7 +759,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Animate skill bars on scroll for skills page
-    const skillBars = document.querySelectorAll('.skill-bar');
+    const skillBars = safeQuerySelectorAll('.skill-bar');
     if (skillBars.length > 0) {
         const skillObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
